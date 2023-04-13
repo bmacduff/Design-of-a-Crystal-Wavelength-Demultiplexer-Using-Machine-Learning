@@ -8,8 +8,8 @@ import pandas as pd
 import os 
 from matplotlib import pyplot as plt
 
-folder_path = '/Users/bryn/Documents/ENPH 455/Matrices'
-csv_path = '/Users/bryn/Documents/ENPH 455/Amplitudes.csv'
+folder_path = ''
+csv_path = ''
 train_plot = []
 test_plot = []
 
@@ -130,18 +130,6 @@ for epoch in range(epochs):
     val_loss = val_loss / len(test_loader.dataset)
     val_acc = val_acc / len(test_loader.dataset)
     
-    train_plot.append(train_acc*100)
-    test_plot.append(val_acc*100)
-
     # Print results for epoch
     print(f"Epoch {epoch+1}/{epochs}, Train Loss: {train_loss:.4f}, Train Accuracy: {train_acc:.4f}, Val Loss: {val_loss:.4f}, Val Accuracy: {val_acc:.4f}")
 
-
-epochs = np.linspace(1,epoch, epoch + 1)
-plt.plot(epochs, train_plot)
-plt.plot(epochs, test_plot)
-plt.title('Training Accuracies for Each Epoch')
-plt.xlabel('Epoch')
-plt.ylabel('Accuracy (%)')
-plt.legend(['Training Accuracy', 'Test Accuracy5'])
-plt.show()
